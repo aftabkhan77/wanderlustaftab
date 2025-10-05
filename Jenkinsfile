@@ -16,8 +16,11 @@ pipeline {
         stage('Build & Deploy with Docker Compose') {
             steps {
                 script {
-                        sh 'docker-compose -p ${PROJECT_NAME} down'
-                        sh 'docker-compose -p ${PROJECT_NAME} up -d --build'
+                    // Stop and remove containers, remove orphans, ignore errors
+                    sh 'docker-compose -p ${PROJECT_NAME} down --remove-orphans || true'
+                    
+                    // Build and start containers in detached mode
+                    sh 'docker-compose -p ${PROJECT_NAME} up -d --build'
                 }
             }
         }
