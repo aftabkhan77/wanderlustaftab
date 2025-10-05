@@ -9,7 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/aftabkhan77/wanderlustaftab.git',
-                    credentialsId: 'aftabkhan77'
+                    credentialsId: 'e342e387-f202-4349-979a-32f5d0f36d5a'
             }
         }
 
