@@ -16,8 +16,8 @@ pipeline {
             steps {
                 script {
                     sh """
-                        docker compose -p ${PROJECT_NAME} down
-                        docker compose -p ${PROJECT_NAME} up -d --build
+                        docker-compose -p ${PROJECT_NAME} down
+                        docker-compose -p ${PROJECT_NAME} up -d --build
                     """
                 }
             }
