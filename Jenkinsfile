@@ -15,10 +15,8 @@ pipeline {
         stage('Build & Deploy with Docker Compose') {
             steps {
                 script {
-                    sh """
-                        docker-compose -p ${PROJECT_NAME} down
-                        docker-compose -p ${PROJECT_NAME} up -d --build
-                    """
+                        sh 'sudo docker-compose -p ${PROJECT_NAME} down'
+                        sh 'sudo docker-compose -p ${PROJECT_NAME} up -d --build'
                 }
             }
         }
